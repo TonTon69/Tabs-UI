@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs UI</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div>
+      <h1>Do you want to be successful?</h1>
+      <!-- Tab items -->
+      <div class="tabs">
+        <div class="tab-item active">
+          <i class="tab-icon fas fa-code"></i>
+          One
+        </div>
+        <div class="tab-item">
+          <i class="tab-icon fas fa-cog"></i>
+          Two
+        </div>
+        <div class="tab-item">
+          <i class="tab-icon fas fa-plus-circle"></i>
+          Three
+        </div>
+        <div class="tab-item">
+          <i class="tab-icon fas fa-pen-nib"></i>
+          Four
+        </div>
+        <div class="line"></div>
+      </div>
+      <!-- Tab content -->
+      <div class="tab-content">
+        <div class="tab-pane active">
+          <h2>Motivated to keep moving forward</h2>
+          <p>
+            Establishing and maintaining the momentum to push yourself to
+            improve day by day is essential to building success. If you know you
+            are making progress from day to day, don't get discouraged even if
+            it takes longer than expected to achieve success. Always motivate
+            yourself and keep an optimistic spirit to move forward.
+          </p>
+        </div>
+        <div class="tab-pane">
+          <h2>Establish the right thoughts</h2>
+          <p>
+            Your thoughts make you who you are. Thought creates a framework for
+            life. They are the foundation for building the right thinking
+            system. Changing the way you think and act is extremely important.
+            In the journey to succeed, you will have to experience many
+            failures. If you insist on keeping those conservative thoughts for
+            yourself and don't change, even with favorable outside support, the
+            way you think and act will not be different. And certainly, the
+            result will not be better after that. The most important thing is to
+            keep an open mind to choose the right and appropriate way of
+            thinking for yourself, thereby learning from mistakes in the past.
+          </p>
+        </div>
+        <div class="tab-pane">
+          <h2>Practice self-assessment</h2>
+          <p>
+            You need to know how to evaluate the goals you have set. A suitable
+            goal for yourself is not something too vain, nor are things too
+            small and bring no value to life. To practice self-assessment, focus
+            on the big picture in your life plan, not just a single goal in one
+            area. Ask yourself if your plan is on track. Are you enjoying your
+            life now and moving closer to your goal of being the role model you
+            want in the future? Are you satisfied with the progress made?…
+            Answering these questions will help you evaluate the problem more
+            effectively.
+          </p>
+        </div>
+        <div class="tab-pane">
+          <h2>Self-determination of the future</h2>
+          <p>
+            It is risky to work for a business no matter how big or how high you
+            are. You are someone who works and contributes to an organization
+            that you do not own. Therefore, you do not take control of your
+            personal income. Success is when life is up to you, not any
+            organization. Therefore, at a certain point, you will definitely
+            have to create another source of income to help yourself be
+            self-reliant, independent, maybe your own business, or even start a
+            business. A new start is always challenging, but get out of your
+            comfort zone and dream about a life in which you are free of
+            everything.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const $ = document.querySelector.bind(document);
+      const $$ = document.querySelectorAll.bind(document);
+
+      const tabs = $$(".tab-item");
+      const panes = $$(".tab-pane");
+
+      const tabActive = $(".tab-item.active");
+      const line = $(".tabs .line");
+
+      line.style.left = tabActive.offsetLeft + "px";
+      line.style.width = tabActive.offsetWidth + "px";
+
+      tabs.forEach((tab, index) => {
+        const pane = panes[index];
+        tab.onclick = function () {
+          $(".tab-item.active").classList.remove("active");
+          $(".tab-pane.active").classList.remove("active");
+
+          line.style.left = this.offsetLeft + "px";
+          line.style.width = this.offsetWidth + "px";
+
+          this.classList.add("active");
+          pane.classList.add("active");
+        };
+      });
+    </script>
+  </body>
+</html>
